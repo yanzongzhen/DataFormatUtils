@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c66f4356-3f73-48ca-b32a-85af687f1e8a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/json/json_generater.go" beforeDir="false" afterPath="$PROJECT_DIR$/json/json_generater.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,9 +70,9 @@
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state x="640" y="451" key="#GOROOT/0.23.1680.983@0.23.1680.983" timestamp="1587731098301" />
-    <state x="540" y="271" width="600" height="486" key="find.popup" timestamp="1587731431701">
+    <state x="540" y="271" width="600" height="486" key="find.popup" timestamp="1587733767832">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state x="540" y="271" width="600" height="486" key="find.popup/0.23.1680.983@0.23.1680.983" timestamp="1587731431701" />
+    <state x="540" y="271" width="600" height="486" key="find.popup/0.23.1680.983@0.23.1680.983" timestamp="1587733767832" />
   </component>
 </project>

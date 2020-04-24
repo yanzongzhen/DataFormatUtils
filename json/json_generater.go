@@ -7,7 +7,6 @@ import (
 	"github.com/yanzongzhen/DataFormatUtils/dataformat"
 	"github.com/yanzongzhen/DataFormatUtils/trace"
 	"github.com/yanzongzhen/Logger/logger"
-	"github.com/yanzongzhen/utils"
 	"reflect"
 	"regexp"
 	"strconv"
@@ -171,6 +170,31 @@ func TransJsonFormat(source []byte, template map[string]interface{}, catchErrors
 	//result, _ = j.Marshal(res)
 	//return result
 }
+
+func Min(x, y int) int {
+	if x < y {
+		return x
+	}
+	return y
+}
+
+func GetCommonPrefix(s1 string, s2 string) string {
+	//minLen := math.Min(len(s1), len(s2))
+
+	minLen := Min(len(s1), len(s2))
+	//res := ""
+	index := 0
+	for i := 0; i < minLen && s1[i] == s2[i]; i++ {
+		//res = append(res, s1[i])
+		index = i
+	}
+	if index > 0 {
+		return s1[0 : index+1]
+	} else {
+		return ""
+	}
+}
+
 
 func TransJsonFormatNew(body []byte, template string, args map[string]string, catchError trace.CatchErrors) []byte {
 	logger.Infoln("开始进行模板匹配")
@@ -459,7 +483,7 @@ func setTemplateValue(root map[string]interface{}, realPath string, tempPath str
 										for resItemKey, resItemValue := range res {
 											if itemStringValue, success := resItemValue.(string); success {
 												if strings.HasPrefix(itemStringValue, "$") && strings.HasSuffix(itemStringValue, "e%x") {
-													commonPrefix := utils.GetCommonPrefix(tempPath, itemStringValue)
+													commonPrefix := GetCommonPrefix(tempPath, itemStringValue)
 													if len(commonPrefix) > 0 {
 														path := strings.Split(itemStringValue, ".")
 														exlen := 0
@@ -688,7 +712,7 @@ func copyJsonItemWithIndex(template map[string]interface{}, index int, commonPat
 			logger.Debugf("commonPath:%s", commonPath)
 			logger.Debugf("realValue:%s", realValue)
 			if strings.HasPrefix(realValue, "$") {
-				commonPrefix := utils.GetCommonPrefix(commonPath, realValue)
+				commonPrefix := GetCommonPrefix(commonPath, realValue)
 				if HasIndexMatcher.MatchString(commonPrefix) {
 					logger.Debug("match1")
 					allIndex := IndexMatcher.FindAllStringIndex(commonPrefix, -1)
@@ -1171,7 +1195,7 @@ func IsJsonMathCondition(source []byte, config []*dataformat.MatchConfig) bool {
 //					//})
 //					tempPath := hasIndexMatcher.ReplaceAllString(realPath, "[0]")
 //					if strings.HasPrefix(valueInTemplate, tempPath) {
-//						prefix := utils.GetCommonPrefix(valueInTemplate, tempPath)
+//						prefix := GetCommonPrefix(valueInTemplate, tempPath)
 //						leftIndex := strings.LastIndex(realPath, "[")
 //						newValue := realPath[:leftIndex] + "[" + strconv.Itoa(index) + "]" + valueInTemplate[len(prefix):]
 //						if hasIndexMatcher.MatchString(valueInTemplate[len(prefix):]) {
@@ -1216,7 +1240,7 @@ func IsJsonMathCondition(source []byte, config []*dataformat.MatchConfig) bool {
 //			if hasIndexMatcher.MatchString(templateValue) {
 //				tempPath := hasIndexMatcher.ReplaceAllString(realPath, "[0]")
 //				if strings.HasPrefix(templateValue, tempPath) {
-//					prefix := utils.GetCommonPrefix(templateValue, tempPath)
+//					prefix := GetCommonPrefix(templateValue, tempPath)
 //					leftIndex := strings.LastIndex(realPath, "[")
 //					newValue := realPath[:leftIndex] + "[" + strconv.Itoa(index) + "]" + templateValue[len(prefix):]
 //
