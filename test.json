@@ -1,0 +1,55 @@
+{
+  "data": {
+    "hots": [
+      {
+        "array1": [
+          "aaa",
+          "bbb"
+        ],
+        "array2": [
+          {
+            "aaa": "BBB1",
+            "AAA": "BBB1"
+          },
+          {
+            "aaa": "BBB2",
+            "AAA": "BBB2"
+          }
+        ]
+      },
+      [
+        {
+          "firstdepnumber": "10001",
+          "depnumber": "10001001"
+        },
+        {
+          "firstdepnumber": "10006",
+          "depnumber": "10006001"
+        }
+      ],
+      [
+        {
+          "firstdepnumber": "10001",
+          "depnumber": "10001002"
+        },
+        {
+          "firstdepnumber": "10005",
+          "depnumber": "10005001"
+        }
+      ],
+      [
+        {
+          "firstdepnumber": "10003",
+          "depnumber": "10003001"
+        },
+        {
+          "firstdepnumber": "10002",
+          "depnumber": "10002002"
+        }
+      ]
+    ]
+  },
+  "message": "操作成功",
+  "code": "0",
+  "success": true
+}
