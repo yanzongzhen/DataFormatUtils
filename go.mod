@@ -4,6 +4,5 @@ go 1.13
 
 require (
 	github.com/yanzongzhen/Logger v1.0.0
-	github.com/yanzongzhen/utils v1.0.4
 	golang.org/x/net v0.0.0-20190311183353-d8887717615a
 )
